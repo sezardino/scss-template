@@ -1,0 +1,59 @@
+// init variables
+@mixin load-theme($theme-light, "default");
+@mixin load-theme($theme-dark, "dark");
+@mixin to-css-var($grid-spacing, 'grid-spacing');
+
+// scaffolding
+html {
+  font-size: $font-size-html;
+  height: 100%;
+}
+
+body {
+  @include font-body;
+
+  font-family: $base-font, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+section {
+  position: relative;
+  overflow-x: auto;
+}
+
+button {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}

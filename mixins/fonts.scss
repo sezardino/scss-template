@@ -1,0 +1,79 @@
+
+@mixin font-body {
+  font-size: $font-size-body;
+  line-height: $font-lh-body;
+  font-weight: $font-weight-regular;
+}
+  
+@mixin font-h1 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-h2 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-h3 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-h4 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-h5 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-h6 {
+  font-size: $font-size-1;
+  line-height: $font-lh-h1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-uppercase {
+  text-transform: uppercase;
+}
+
+@mixin font-center {
+  text-align: center;
+}
+
+@mixin font-left {
+  text-align: left;
+}
+
+@mixin font-italic {
+  font-style: italic;
+}
+
+@mixin add-font($font: $base-font, $weight, $location, $ext) {
+  @font-face {
+    font-family: $font;
+    font-style: normal;
+    font-display: swap;
+    font-weight: $weight;
+
+    @if $ext == woff2 {
+      src: url('../assets/font/#{f$location}.woff2') format('woff2');
+    }
+
+    @if $ext == woff {
+      src: url('../assets/font/#{$location}.woff') format('woff');
+    }
+
+    @if $ext == ttf {
+      src: url('../assets/font/#{$location}.ttf') format('truetype');
+    }
+  }
+}

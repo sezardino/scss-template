@@ -1,0 +1,23 @@
+@mixin container {
+    margin: 0 auto;
+    padding: 0 var(--grid-spacing-mobile);
+    width: 100%;
+    max-width: 100%;
+    @include media-from('sm') {
+      max-width: 540px;
+    }
+    @include media-from('md') {
+      max-width: 720px;
+    }
+    @include media-from('lg') {
+      padding: var(--grid-spacing-desktop);
+      max-width: 900px;
+    }
+    @include media-from('xxl') {
+      max-width: 1300px;
+    }
+    @include media-from('fhd') {
+      max-width: 1620px;
+    }
+}
+  

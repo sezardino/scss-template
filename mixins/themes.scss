@@ -1,0 +1,19 @@
+@function map-get-strict($map, $key, $themeKey) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @else {
+    @error "ERROR: Specified color key '#{$key}' does not exist in theme '#{$themeKey}'";
+  }
+}
+  
+@mixin load-theme($themeMap, $themeKey) {
+  @at-root {
+    html#{if($themeKey == "default", "", "[#{$themeKey}]")} {
+      @each $key in $theme-keys {
+        --color-#{$key}: #{map-get-strict($themeMap, #{$key}, $themeKey)};
+      }
+    }
+  }
+}

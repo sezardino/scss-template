@@ -1,0 +1,47 @@
+@mixin media-from($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (min-width: #{$breakpoint}px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-to($breakpoint) {
+  @if map-has-key($breakpoints_down, $breakpoint) {
+    @media (max-width: map-get($breakpoints_down, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: #{$breakpoint}px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-from-to($min, $max) {
+  @if map-has-key($min, $breakpoint) and map-has-key($max, $breakpoint) {
+    @media (min-width: map-get($min, $breakpoint)) and (max-width: map-get($min, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @if map-has-key($min, $breakpoint) and not (map-has-key($max, $breakpoint)) {
+    @media (min-width: map-get($min, $breakpoint)) and (max-width: #{$max}px) {
+      @content;
+    }
+  }
+
+  @if not (map-has-key($min, $breakpoint)) and map-has-key($max, $breakpoint) {
+    @media (min-width: #{$max}px) and (max-width: map-get($max, $breakpoint)) {
+      @content;
+    }
+  }
+}
