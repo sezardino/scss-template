@@ -1,7 +1,7 @@
 // init variables
-@mixin load-theme($theme-light, "default");
-@mixin load-theme($theme-dark, "dark");
-@mixin to-css-var($grid-spacing, 'grid-spacing');
+@include load-theme($theme-light, "default");
+@include load-theme($theme-dark, "dark");
+@include to-css-var($grid-spacing, "grid-spacing");
 
 // scaffolding
 html {
