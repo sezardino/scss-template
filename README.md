@@ -149,9 +149,9 @@ Add font style to element
     @mixin font-... {
       ...
     }
-      
+
 ### Add Font
-Register font 
+Register font
 #### Arguments
 - $font
 - $weight
@@ -235,7 +235,7 @@ descr
 - $var13
 
 body:
-      
+
     @mixin load-theme($themeMap, $themeKey) {
       @at-root {
         html#{if($themeKey == "default", "", "[#{$themeKey}]")} {
@@ -339,7 +339,7 @@ descr
 
 body:
 
-    @mixin width-height($width, $height: $width) {
+    @mixin size($width, $height: $width) {
       width: $width;
       height: $height;
     }
