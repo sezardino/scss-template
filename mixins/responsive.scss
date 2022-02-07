@@ -45,3 +45,152 @@
     }
   }
 }
+
+@mixin extra-small-mobile-only {
+  @media (max-width: 375.98px) {
+    @content;
+  }
+}
+
+@mixin small-mobile-only {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+@mixin small-mobile-and-up {
+  @media (min-width: 575.98px) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin mobile-and-tablet {
+  @media (max-width: 991.98px) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: 768px) and (max-width: 990.98px) {
+    @content;
+  }
+}
+
+@mixin tablet-and-desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin small-desktop-and-up {
+  @media (min-width: 991px) {
+    @content;
+  }
+}
+
+@mixin medium-desktop-and-up {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin small-and-medium-desktop-only {
+  @media (min-width: 991px) and (max-width: 1439.98px) {
+    @content;
+  }
+}
+
+@mixin large-desktop-and-up {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin extra-large-desktop-and-up {
+  @media (min-width: 1568px) {
+    @content;
+  }
+}
+
+@mixin media-from($breakpoint) {
+  @media (min-width: #{$breakpoint}px) {
+    @content;
+  }
+}
+
+@mixin media-up-to($breakpoint) {
+  @media (max-width: #{$breakpoint}px) {
+    @content;
+  }
+}
+
+@mixin media-from-to($min, $max) {
+  @media (min-width: #{$min}px) and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+// <576
+// ABOUT
+// CAREER
+// ZOOS
+// TRAVELING
+
+// 576-991
+// ABOUT CAREER ZOOS
+
+// 991-1440
+// ABOUT
+// CAREER
+// ZOOS
+// TRAVELING
+
+// 1325-2568
+// ABOUT CAREER ZOOS
+
+
+.mobile-first {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+
+  @include small-mobile-and-up {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  @include small-and-medium-desktop-only {
+    flex-direction: column;
+  }
+
+  @include media-from-to(1325, 2568) {
+    flex-direction: row;
+  }
+}
+
+.desktop-first {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  // 0-1440
+  @media(max-width: 1440px) {
+    flex-direction: column;
+  }
+  
+  // 0-991
+  @include mobile-and-tablet {
+    flex-direction: row;
+  }
+
+  // 0-576
+  @include small-mobile-and-up {
+    flex-direction: column;
+  }
+}
